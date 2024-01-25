@@ -1,5 +1,5 @@
 
-upstreamAPIURL="http://localhost:8888";
+upstreamAPIURL="https://intention.softwareshinobi.digital";
 
 currentTraderUsername="";
 
