@@ -1,5 +1,5 @@
 
-upstreamAPIURL="https://intention.softwareshinobi.digital";
+upstreamAPIURL="https://apis.intention.softwareshinobi.digital";
 
 currentTraderUsername="";
 
