@@ -1,12 +1,12 @@
-version: '3.8'
+version: "3.8"
 
 services:
 
-    the-intention-api:
+    the-intention-app-api:
 
-        container_name: the-intention-api
+        container_name: the-intention-app-api
         
-        image: softwareshinobi/the-intention-api:42.0
+        image: softwareshinobi/the-intention-app-api
 
         build: 
 
@@ -18,4 +18,4 @@ services:
 
         ports:
 
-            - "80:8888"
+            - "8888:8888"

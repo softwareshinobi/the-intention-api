@@ -1,4 +1,4 @@
-package digital.dwityuniverse.intention;
+package digital.softwareshinobi.intention.controller;
 
 import java.util.Map;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-@RequestMapping("intention")
+@RequestMapping("")
 public class IntentionAPIController {
 
     private final String INTENTION_DEFAULT = "the five b's forever and forever.";
@@ -21,32 +21,25 @@ public class IntentionAPIController {
 
     public IntentionAPIController() {
 
-        System.out.println("## in2it / IntentionAPIController");
+        System.out.println("init > Intention API Controller");
+
+    }
+
+    @GetMapping("health")
+    public String getHealth() {
+
+        return "OK";
 
     }
 
     @GetMapping("")
-    public String landing() {
-
-        return "The Intention API";
-
-    }
-
-    @GetMapping("/health")
-    public String getHealth() {
-
-        return "GREEN";
-
-    }
-
-    @GetMapping("/")
-    public String getIntentionash() {
+    public String getIntention() {
 
         return intention;
 
     }
 
-    @PostMapping("/set-intention")
+    @PostMapping("set")
     public String setIntention(@RequestBody Map requestPayLoad) {
 
         System.out.println("enter > setIntention");
