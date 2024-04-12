@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IntentionAppAPI {
+public class TheIntentionApp {
 
     public static void main(final String[] commandLineArguments) {
 
-        SpringApplication.run(IntentionAppAPI.class, commandLineArguments);
+        SpringApplication.run(TheIntentionApp.class, commandLineArguments);
 
     }
 

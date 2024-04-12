@@ -1,107 +1,113 @@
 $(document).ready(function () {
 
-    $("#intention").val("");
-    
+//alert("yo");
+
+    $("#intention").val("--");
+
     getUniverseIntention();
 
 });
 
 function getUniverseIntention() {
 
-	console.debug("enter -> getUniverseIntention");
+    console.debug("enter -> getUniverseIntention");
 
 //////////////////////////////////////////
 
-	$.ajax({
+    $.ajax({
 
-		type: "GET",
+        type: "GET",
 
-		url: upstreamAPIURL + "/intention/",
+        url: upstreamAPIURL + "",
 
-		crossDomain: true,
+        crossDomain: true,
 
-		dataType: "text",
+        dataType: "text",
 
-		success: function (response, status, jqXHR) {
+        success: function (response, status, jqXHR) {
+
+//alert("success");
 
             console.log("response / " + response);
 
-            intention=response;
+            intention = response;
 
             console.log("intention / server / " + intention);
 
             $("#intention").val(intention);
 
-		},
+        },
 
-		error: function (exception, status) {
+        error: function (exception, status) {
+//alert("error");
+            console.log("error issuing request");
 
-			console.log("error issuing request");
+            console.log("status / " + status);
 
-			console.log("status / " + status);
+            console.log("exception / " + exception);
 
-			console.log("exception / " + exception);
+        }
 
-		}
-
-	});
+    });
 
 }
 
 function processForm() {
 
-	console.debug("enter -> processForm");
+    console.debug("enter -> processForm");
 
-    intention=$("#intention").val();
+    intention = $("#intention").val();
 
     //alert("intention / " + intention);
 
 //////////////////////////////////////////
 
-	payload = JSON.stringify({
+    payload = JSON.stringify({
 
-        intention: intention,        
+        intention: intention,
 
-	});
+    });
 
     //alert("payload / ", payload);
 
 //////////////////////////////////////////
 
-	$.ajax({
+    $.ajax({
 
-		type: "POST",
+        type: "POST",
 
-		url: upstreamAPIURL + "/intention/set-intention",
+        url: upstreamAPIURL + "",
 
-		data: payload,
+        data: payload,
 
-		contentType: "application/json; charset=utf-8",
+        contentType: "application/json; charset=utf-8",
 
-		crossDomain: true,
+        crossDomain: true,
 
-		dataType: "text",
+        dataType: "text",
 
-		success: function (response, status, jqXHR) {
+        success: function (response, status, jqXHR) {
 
             console.log("response / " + response);
 
-            alert(response);
+            //      alert(response);
 
             getUniverseIntention();
 
-		},
+        },
 
-		error: function (exception, status) {
+        error: function (exception, status) {
 
-			console.log("error issuing request");
+            alert("problem");
 
-			console.log("status / " + status);
+            console.log("error issuing request");
 
-			console.log("exception / " + exception);
+            console.log("status / " + status);
 
-		}
+            console.log("exception / " + exception);
 
-	});
+        }
+
+    });
 
 }

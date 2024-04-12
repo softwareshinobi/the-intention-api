@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin
 @RequestMapping("")
-public class IntentionAPIController {
+public class IntentionController {
 
-    private final String INTENTION_DEFAULT = "the five b's forever and forever.";
+    private final String INTENTION_DEFAULT = "the five b's forever";
 
     private String intention = INTENTION_DEFAULT;
 
     public static final String KEY_JSON_INTENTION = "intention";
 
-    public IntentionAPIController() {
+    public IntentionController() {
 
-        System.out.println("init > Intention API Controller");
+        System.out.println("init > Intention Controller");
 
     }
 
@@ -35,11 +35,11 @@ public class IntentionAPIController {
     @GetMapping("")
     public String getIntention() {
 
-        return intention;
+        return this.intention;
 
     }
 
-    @PostMapping("set")
+    @PostMapping("")
     public String setIntention(@RequestBody Map requestPayLoad) {
 
         System.out.println("enter > setIntention");
