@@ -1,8 +1,8 @@
 # The Intention App
 
-![The Intention App Home Page](/docs/imagery/cover.png)
+A RESTful Spring situation to get and set an intention. and then put it on screen real purty.
 
-A Spring REST situation to get and set an intention.
+![The Intention App Home Page](/docs/imagery/cover.png)
 
 The Intention App is a spring java restful api server designed to help you stay focused and motivated.
 
@@ -13,7 +13,3 @@ The Intention App is a spring java restful api server designed to help you stay 
 ![The Intention App Home Page](/docs/imagery/page-one.png)
 
 ![The Intention App Home Page](/docs/imagery/page-two.png)
-
-View Code on GitHub: [Link to your GitHub repository]
-
-This approach showcases your app's functionality and technical aspects while keeping the presentation concise and engaging for portfolio visitors.
