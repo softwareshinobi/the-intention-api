@@ -2,6 +2,73 @@ version: "3.8"
 
 services:
 
+
+##########################################
+##
+## valorant digital / network infrastructure
+##
+##########################################
+
+    napkin-exchange-market-proxy:
+
+        container_name: napkin-exchange-market-proxy
+
+        image: nginxproxy/nginx-proxy
+
+        restart: unless-stopped
+
+        ports:
+
+            - 80:80
+
+            - 443:443
+
+        volumes:
+
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+
+            - /var/docker/nginx/html:/usr/share/nginx/html
+
+            - /var/docker/nginx/certs:/etc/nginx/certs
+
+            - /var/docker/nginx/vhost:/etc/nginx/vhost.d
+
+        logging:
+
+            options:
+
+                max-size: "10m"
+
+                max-file: "3"
+
+    napkin-exchange-market-letsencrypt:
+
+        container_name: napkin-exchange-market-letsencrypt
+
+        image: jrcs/letsencrypt-nginx-proxy-companion
+
+        restart: unless-stopped
+
+        volumes_from:
+
+            - napkin-exchange-market-proxy
+
+        volumes:
+
+            - /var/run/docker.sock:/var/run/docker.sock
+
+            - /var/docker/nginx/acme:/etc/acme.sh
+
+        environment:
+
+            DEFAULT_EMAIL: the.software.shinobi@gmail.com
+
+##########################################
+##
+## the intention api stuff
+##
+##########################################
+
     the-intention-app-api:
 
         container_name: the-intention-app-api
@@ -14,8 +81,38 @@ services:
 
             dockerfile: Dockerfile
 
-        restart: always
+        restart: unless-stopped
 
         ports:
 
             - "8888:8888"
+
+        environment:
+
+            VIRTUAL_HOST: api.intention.softwareshinobi.digital
+
+            LETSENCRYPT_HOST: api.intention.softwareshinobi.digital
+
+    the-intention-app-universe:
+
+        container_name: the-intention-app-universe
+        
+        image: softwareshinobi/the-intention-app-universe
+
+        build: 
+
+            context: web
+
+            dockerfile: Dockerfile
+
+        restart: unless-stopped
+
+        ports:
+
+            - "8880:80"
+
+        environment:
+
+            VIRTUAL_HOST: intention.softwareshinobi.digital
+
+            LETSENCRYPT_HOST: intention.softwareshinobi.digital
