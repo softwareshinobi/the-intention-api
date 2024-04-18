@@ -1,6 +1,6 @@
 # The Intention App
 
-![The Intention App Home Page](/imagery/cover.png)
+![The Intention App Home Page](/docs/imagery/cover.png)
 
 A Spring REST situation to get and set an intention.
 
@@ -10,9 +10,9 @@ The Intention App is a spring java restful api server designed to help you stay 
     View your intention throughout the day for a productivity boost.
     Vibrant and user-friendly interface built with the Bootstrap framework.
 
-![The Intention App Home Page](/imagery/page-one.png)
+![The Intention App Home Page](/docs/imagery/page-one.png)
 
-![The Intention App Home Page](/imagery/page-two.png)
+![The Intention App Home Page](/docs/imagery/page-two.png)
 
 View Code on GitHub: [Link to your GitHub repository]
 
