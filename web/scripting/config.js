@@ -1,5 +1,5 @@
 
-apiURL="http://localhost:8888/";
+apiURL="https://apis.intention.softwareshinobi.digital";
 
 $(document).ready(function () {
 
